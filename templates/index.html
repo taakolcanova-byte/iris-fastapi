@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Классификация Ирисов Фишера</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 50px auto; padding: 20px; background-color: #f4f4f9; }
+        h2 { text-align: center; color: #333; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="number"] { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        button { width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+        button:hover { background-color: #218838; }
+        .result { margin-top: 20px; padding: 15px; background-color: #d4edda; color: #155724; border-radius: 4px; text-align: center; font-size: 18px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Предсказание сорта Ириса</h2>
+    
+    <form method="post">
+        <div class="form-group">
+            <label>Длина чашелистика (см):</label>
+            <input type="number" step="0.1" name="sepal_length" required value="5.1">
+        </div>
+        <div class="form-group">
+            <label>Ширина чашелистика (см):</label>
+            <input type="number" step="0.1" name="sepal_width" required value="3.5">
+        </div>
+        <div class="form-group">
+            <label>Длина лепестка (см):</label>
+            <input type="number" step="0.1" name="petal_length" required value="1.4">
+        </div>
+        <div class="form-group">
+            <label>Ширина лепестка (см):</label>
+            <input type="number" step="0.1" name="petal_width" required value="0.2">
+        </div>
+        <button type="submit">Отправить</button>
+    </form>
+
+    <!-- Блок вывода результата -->
+    {% if result %}
+    <div class="result">
+        Предсказанный сорт: {{ result }}
+    </div>
+    {% endif %}
+</body>
+</html>
